@@ -35,7 +35,8 @@ jobs:
             - name: Tests E2E (end-to-end)
               run: yarn run e2e  
               
-            - uses: actions/uploud-artifact@v4
+            - uses: actions/upload-artifact@v4
+              if: ${{ !cancelled() }}
               with:
                 name: relatorio-de-testes
                 path: ./playwright-report
